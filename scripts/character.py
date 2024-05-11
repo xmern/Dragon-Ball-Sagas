@@ -1,10 +1,14 @@
+from  pygame.sprite import Sprite
 import time
-class Character():
+
+class Character(Sprite):
     def __init__(self):
         super().__init__()
+    
         #physics related attributes
         self.vel = [0,0]
         self.acc = [0,0.35]
+        self.friction = 0.4
         #gameplay related atributes
         self.base_power = 5
         self.ki = 30
@@ -14,7 +18,7 @@ class Character():
 
         #animation related attributes
         self.frame = 0
-        self.animations ={"idle":{},"test1": {"spritepack":"gokussj",
+        self.animations ={"idle":{},"intro":{"frames":[0],0:{"duration":10,"action":"", "multiplier":0}},"test1": {"spritepack":"gokussj",
                 "frames":[0, 2, 4, 5],
                 0:{"duration":10,"action":"", "multiplier":0},
                 2:{"duration":4,"action":"", "multiplier":0},
@@ -24,6 +28,11 @@ class Character():
         self.animation = "intro"
         self.animation_dur = 0
         self.animation_counter = 0
+        self.frames = []
+        self.frame_no = 0
+        self.frame = self.animations["intro"][self.animations['intro']['frames'][0]]
+        self.image = self.frames[self.frame_no]
+        self.rect = self.image.get_rect()
 
     def play_animation(self):
         try:
@@ -40,6 +49,7 @@ class Character():
             self.animation_counter = 0
             self.animation_dur = 0
             self.frame = self.animation["idle"]
+            self.frame_no = 0
             return
 
         if self.frame["duration"] == self.animation_dur:   
@@ -48,25 +58,42 @@ class Character():
                 self.animation_counter = 0
                 self.animation_dur = 0
                 self.frame = self.animations["idle"]
+                self.frame_no = 0
                 return                     
             self.animation_dur = 0
             self.animation_counter += 1
-            frame_no = animation_["frames"][self.animation_counter]
-            self.frame = animation_[frame_no]
+            self.frame_no = animation_["frames"][self.animation_counter]
+            self.frame = animation_[self.frame_no]
             self.multiplier = self.frame["multiplier"]
+    def instantTransmission(self,x,y):
+        self.rect.center = x,y
+    def tele_forward(self):
+        self.rect.x += 200    
+    def tele_backward(self):
+        self.rect.x -= 200  
+    def tele_upward(self):
+        self.rect.y -= 200               
+    def get_frame(self):
+        pass
     def update(self):
         if self.animation not in[ "","idle"]:
             self.play_animation()
-        print(self.frame," ",self.animation," ",self.animation_counter)
-
+        self.image = self.frames[self.frame_no]
+        #print(self.frame," ",self.animation," ",self.animation_counter)
+'''
 cr = Character()
 cr.frame = {"duration":10,"action":"", "multiplier":0}
 cr.animation_dur = 0
-cr.animation = "test1"
+cr.animation = "test1"'''
 
-while True:
-    cr.update()
-    time.sleep(0.5)
+if __name__ == "__main__":
+    cr = Character()
+    cr.frame = {"duration":10,"action":"", "multiplier":0}
+    cr.animation_dur = 0
+    cr.animation = "test1"
+    while True:
+        cr.update()
+        time.sleep(0.5)
 
 
 
