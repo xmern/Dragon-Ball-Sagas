@@ -2,7 +2,7 @@ from  pygame.sprite import Sprite
 import time
 
 class Character(Sprite):
-    def __init__(self):
+    def __init__(self, side, animations ,frames=[]):
         super().__init__()
     
         #physics related attributes
@@ -16,6 +16,8 @@ class Character(Sprite):
         self.full_health = 100
         self.multiplier = 0
 
+        self.side = side
+
         #animation related attributes
         self.frame = 0
         self.animations ={"idle":{},"intro":{"frames":[0],0:{"duration":10,"action":"", "multiplier":0}},"test1": {"spritepack":"gokussj",
@@ -28,11 +30,13 @@ class Character(Sprite):
         self.animation = "intro"
         self.animation_dur = 0
         self.animation_counter = 0
-        self.frames = []
+        self.frames = frames
         self.frame_no = 0
         self.frame = self.animations["intro"][self.animations['intro']['frames'][0]]
         self.image = self.frames[self.frame_no]
         self.rect = self.image.get_rect()
+        self.attacking = False
+        self.animation_actions = [self.instantTransmission,self.tele_forward,self.tele_backward]
 
     def play_animation(self):
         try:
@@ -87,7 +91,7 @@ cr.animation_dur = 0
 cr.animation = "test1"'''
 
 if __name__ == "__main__":
-    cr = Character()
+    cr = Character('r',{})
     cr.frame = {"duration":10,"action":"", "multiplier":0}
     cr.animation_dur = 0
     cr.animation = "test1"

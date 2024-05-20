@@ -1,0 +1,10 @@
+POST http://192.168.0.139:80/control
+
+{
+  "pwm1": 128,
+  "pwm5": 128,
+  "forwardLeft": true,
+  "forwardRight": true,
+  "backwardLeft": false,
+  "backwardRight": false
+}
