@@ -1,11 +1,9 @@
-frames = {
+Frames = {
     "goku_base1":['Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_03.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_05.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_06.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_07.png', 
-                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_08.png', 
-                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_100.png', 
-                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_101.png', 
+                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_08.png',  
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_11.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_12.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_13.png', 
@@ -69,11 +67,15 @@ frames = {
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_95.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_96.png', 
                   'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_98.png', 
-                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_99.png'] 
+                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_99.png',
+                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_100.png', 
+                  'Dragon_Ball_Sprites/GOKU_fases/GOKU/Goku_101.png'                  
+                  ] 
 }
 
-lis = []
-for i in frames["goku_base1"]:
-    nf = "Dragon_Ball_Sprites/GOKU_fases/GOKU/"+i
-    lis.append(nf)
-print(lis)    
+
+#lis = []
+#for i in Frames["goku_base1"]:
+#    nf = "Dragon_Ball_Sprites/GOKU_fases/GOKU/"+i
+#    lis.append(nf)
+#print(lis)    

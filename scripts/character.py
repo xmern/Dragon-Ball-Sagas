@@ -17,10 +17,12 @@ class Character(Sprite):
         self.multiplier = 0
 
         self.side = side
+        self.actions = []
 
         #animation related attributes
         self.frame = 0
-        self.animations ={"idle":{},"intro":{"frames":[0],0:{"duration":10,"action":"", "multiplier":0}},"test1": {"spritepack":"gokussj",
+        self.animations = animations
+        {"idle":{},"intro":{"frames":[0],0:{"duration":10,"action":"", "multiplier":0}},"test1": {"spritepack":"gokussj",
                 "frames":[0, 2, 4, 5],
                 0:{"duration":10,"action":"", "multiplier":0},
                 2:{"duration":4,"action":"", "multiplier":0},
@@ -31,8 +33,9 @@ class Character(Sprite):
         self.animation_dur = 0
         self.animation_counter = 0
         self.frames = frames
-        self.frame_no = 0
+        self.frame_no = self.animations["intro"]["frames"][0]
         self.frame = self.animations["intro"][self.animations['intro']['frames'][0]]
+        print(len(self.frames))
         self.image = self.frames[self.frame_no]
         self.rect = self.image.get_rect()
         self.attacking = False
@@ -59,6 +62,7 @@ class Character(Sprite):
         if self.frame["duration"] == self.animation_dur:   
             if self.animation_counter == animation_last_index:
                 self.animation = "idle"
+                self.attacking = False
                 self.animation_counter = 0
                 self.animation_dur = 0
                 self.frame = self.animations["idle"]
@@ -82,7 +86,10 @@ class Character(Sprite):
     def update(self):
         if self.animation not in[ "","idle"]:
             self.play_animation()
+        if self.animation == "idle":
+            self.frame_no = self.animations["idle"]["frames"][0]    
         self.image = self.frames[self.frame_no]
+        #print(self.frame_no)
         #print(self.frame," ",self.animation," ",self.animation_counter)
 '''
 cr = Character()
