@@ -25,7 +25,25 @@ Animations = {
             "frames":[13,14,15],
             13:{"duration":4, "action":"", "multiplier":0},
             14:{"duration":3, "action":"", "multiplier":2},
-            15:{"duration":4, "action":"", "multiplier":0},            
-        }
+            15:{"duration":5, "action":"", "multiplier":0},            
+        },
+        "punch2":{
+            "frames":[16,16,16],
+            16:{"duration":2, "action":"", "multiplier":0},
+            16:{"duration":3, "action":"", "multiplier":1},
+            16:{"duration":2, "action":"", "multiplier":0},           
+        },
+        "punch3":{
+            "frames":[17,17,17],
+            17:{"duration":2, "action":"", "multiplier":0},
+            17:{"duration":2, "action":"", "multiplier":1},
+            17:{"duration":2, "action":"", "multiplier":0},           
+        },
+        "kick1":{
+            "frames":[18,19,20],
+            18:{"duration":4, "action":"", "multiplier":0},
+            19:{"duration":3, "action":"", "multiplier":2},
+            20:{"duration":3, "action":"", "multiplier":0},           
+        }                         
     }
 }

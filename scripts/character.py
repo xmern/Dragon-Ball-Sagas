@@ -1,9 +1,11 @@
 from  pygame.sprite import Sprite
+from random import randint
 import time
 
 class Character(Sprite):
     def __init__(self, side, animations ,frames=[]):
         super().__init__()
+        self.randint = randint
     
         #physics related attributes
         self.vel = [0,0]
@@ -40,7 +42,8 @@ class Character(Sprite):
         self.rect = self.image.get_rect()
         self.attacking = False
         self.animation_actions = [self.instantTransmission,self.tele_forward,self.tele_backward]
-
+    def handle_control_input(self,indices,human=True):
+        pass
     def play_animation(self):
         try:
             animation_ = self.animations[self.animation]
@@ -53,6 +56,7 @@ class Character(Sprite):
             self.animation_dur += 1 
         if self.animation_counter > animation_last_index:
             self.animation = "idle"
+            self.attacking = False
             self.animation_counter = 0
             self.animation_dur = 0
             self.frame = self.animation["idle"]
