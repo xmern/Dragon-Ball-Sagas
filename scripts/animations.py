@@ -21,6 +21,18 @@ Animations = {
         "idle":{
             "frames":[6],
         },
+        "left":{
+            "frames":[8],
+        },
+        "right":{
+            "frames":[9],
+        },  
+        "up":{
+            "frames":[5],
+        },
+        "down":{
+            "frames":[5],
+        },      
         "punch1":{
             "frames":[13,14,15],
             13:{"duration":4, "action":"", "multiplier":0},
@@ -41,9 +53,22 @@ Animations = {
         },
         "kick1":{
             "frames":[18,19,20],
-            18:{"duration":4, "action":"", "multiplier":0},
+            18:{"duration":2, "action":"", "multiplier":0},
             19:{"duration":3, "action":"", "multiplier":2},
             20:{"duration":3, "action":"", "multiplier":0},           
-        }                         
+        },    
+        "kick2":{
+            "frames":[21,22],
+            21:{"duration":4, "action":"", "multiplier":2},
+            22:{"duration":3, "action":"", "multiplier":0},           
+        },
+        "charge":{
+            "frames":[40,41,42],
+            40:{"duration":3, "action":"", "multiplier":0, "offsetx":-20,"offsety":8, "offsetxl":-18,"offsetyl":8},
+            41:{"duration":3, "action":"", "multiplier":0, "offsetx":-21,"offsety":8, "offsetxl":-19,"offsetyl":8},  
+            42:{"duration":3, "action":"", "multiplier":0, "offsetx":-12,"offsety":8, "offsetxl":-20,"offsetyl":8},               
+
+        }  
+
     }
 }

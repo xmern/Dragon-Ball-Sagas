@@ -2,7 +2,7 @@ from imports import *
 
 #frameloader.load_frames("goku_base1")
 
-WINDOW_SIZE = [700,600]
+WINDOW_SIZE = [1300,600]
 Screen = pygame.display.set_mode(WINDOW_SIZE)
 
 class Game():
@@ -20,6 +20,9 @@ class Game():
         self.start_game()
     def start_game(self):
         self.player1 =  Goku_base1("l",animations=Animations["goku_base1"],frames=frameloader.load_frames("goku_base1"))  
+        self.player1.pos = [200,300]
+        self.player1.scale  = 2
+
         self.playerGroup1.add(self.player1)
     def human_controller(self):
         #z,x,a,s,q,w,left,right,up,down
@@ -38,7 +41,7 @@ class Game():
         if keys[pygame.K_w]:
             key_indices[5] = True   
         if keys[pygame.K_LEFT]:
-            key_indices[6] = True        
+            key_indices[6] = True                    
         if keys[pygame.K_RIGHT]:
             key_indices[7] = True 
         if keys[pygame.K_UP]:
